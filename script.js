@@ -5,14 +5,9 @@ let dimension = 16;
 let size = 480 / dimension;
 let div = [];
 
-grid.addEventListener('click', function () {
-    dimension = prompt('What dimensions do you want?');
-    
-})
+
 
 function createGrid() {
-
-    
 
     container.setAttribute('style', 'grid-template-rows: repeat(' + dimension + ',' + size + 'px' + ')');
     container.setAttribute('style', 'grid-template-columns: repeat(' + dimension + ',' + size + 'px' + ')');
@@ -39,3 +34,13 @@ function clearGrid() {
 }
 createGrid();
 clearGrid();
+
+grid.addEventListener('click', function () {
+    dimension = prompt('What dimensions do you want?');
+    size = 480 / dimension;
+    for (let i = 0; i < div.length; i++) {
+        container.removeChild(div[i])
+        div[i] = [];
+    }
+    createGrid();
+})
